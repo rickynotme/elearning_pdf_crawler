@@ -4,7 +4,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
-import platform, time
+from PyPDF2 import PdfFileReader, PdfFileWriter
+import platform, time, os
 
 EXE_PATH_OS={'Windows':'./lib/chromedriver.exe', 'Darwin':'./lib/chromedriverMac'}
 DIR_TMP_PDF='./tmp_pdf/'

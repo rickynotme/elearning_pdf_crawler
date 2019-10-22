@@ -7,7 +7,11 @@
 
 ## Set up the environment
 - Install selenium library:
+	
+	pip install selenium
 
-    pip install selenium
+- Install PyPDF2:
+	
+	pip install PyPDF2
 
 ## Usage
