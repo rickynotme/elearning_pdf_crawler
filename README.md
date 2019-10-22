@@ -6,7 +6,8 @@
 3. You have Chrome installed on your computer.
 
 ## Set up the environment
->Install selenium library:
+- Install selenium library:
+
     pip install selenium
 
 ## Usage
