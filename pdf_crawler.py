@@ -15,6 +15,7 @@ explicit_wait_time = 30
 implicit_wait_time = 30
 
 def log_in(driver, wait_time):
+    #log in the elearing system, only works for SSO user
     li = WebDriverWait(driver, wait_time).until(
         EC.element_to_be_clickable((By.XPATH, "//input[@type='radio'][1]"))
     )
@@ -46,6 +47,7 @@ def open_book(driver, wait_time):
     driver.switch_to.frame(iframe_outter)
     print("Switch to iframe frmpmod")
     WebDriverWait(driver, wait_time).until(EC.frame_to_be_available_and_switch_to_it("frmpmod"))
+    #Switch to the iframe twice to ensure that they are selected
     driver.switch_to.frame("iframelearning")
     driver.switch_to.frame("frmpmod")
 
@@ -56,6 +58,7 @@ def open_book(driver, wait_time):
    
     link = div.find_element_by_xpath("//span/a")
     link.click()
+    #Wait for the new window open
     for x in range(0, 10):
         if len(driver.window_handles) > 1:
             break
@@ -69,6 +72,10 @@ def open_book(driver, wait_time):
         pass
 
 def merge_pdfs(basedir, pages, output):
+    #make sure the base dir exsits
+    if not os.path.exists(basedir):
+        os.mkdir(dir)
+
     pages = pages + 1
     paths = list(map(lambda x:str(basedir + str(x) + '.pdf'), range(1, pages)))
 
